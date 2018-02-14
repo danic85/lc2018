@@ -1,11 +1,13 @@
-<aura:component implements="flexipage:availableForAllPageTypes">
+<aura:component implements="flexipage:availableForAllPageTypes" controller="OpenCasesCtrl">
+    <aura:attribute name="caseCount" type="Integer" default="0" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<lightning:card>
         <aura:set attribute="title">
             Open Cases
         </aura:set>
         <aura:set attribute="iconName" value="standard:case" />
         <p class="slds-p-horizontal_small">
-            Card Body (custom component)
+            There are {!v.caseCount} open cases.
         </p>
     </lightning:card>
 </aura:component>
