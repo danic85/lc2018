@@ -1,3 +1,18 @@
 <aura:component >
-	New Case
+    <aura:attribute name="newCase" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <force:recordData aura:id="caseCreator"
+          targetFields="{!v.newCase}"
+          layoutType="FULL"/>
+    <lightning:input aura:id="subjectField" 
+                     name="name" 
+                     label="Case Subject" 
+                     value="{!v.newCase.Subject}" 
+                     required="true"/>
+    
+    <lightning:button label="Save Case" 
+                      onclick="{!c.handleSaveCase}" 
+                      variant="brand" 
+                      class="slds-m-top_medium"/>
 </aura:component>
